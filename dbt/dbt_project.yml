@@ -18,4 +18,4 @@ models:
   urban_mobility:
     staging:
       +materialized: view
-      +schema: analytics_staging
+      +schema: analytics

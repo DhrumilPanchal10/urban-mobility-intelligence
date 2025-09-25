@@ -1,4 +1,4 @@
-{{ config(materialized='view', schema='analytics') }}
+
 
 with source_data as (
     select
@@ -8,7 +8,7 @@ with source_data as (
         route_type,
         route_color,
         route_text_color
-    from {{ source('raw', 'staging_routes') }}
+    from "airflow"."public"."staging_routes"
 )
 
 select

@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_stops
+    description: "Cleaned stops data from NYC MTA"
+    columns:
+      - name: stop_id
+        tests:
+          - not_null
+          - unique
+      - name: stop_name
+        tests:
+          - not_null
+      - name: latitude
+        tests:
+          - not_null
+      - name: longitude
+        tests:
+          - not_null
+
+  - name: stg_routes
+    description: "Cleaned routes data from NYC MTA"
+    columns:
+      - name: route_id
+        tests:
+          - not_null
+          - unique
+      - name: route_short_name
+        tests:
+          - not_null
+      - name: route_long_name
+        tests:
+          - not_null

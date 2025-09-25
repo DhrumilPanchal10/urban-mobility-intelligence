@@ -1,4 +1,9 @@
-{{ config(materialized='view', schema='analytics') }}
+
+  create view "airflow"."analytics_analytics"."stg_stops__dbt_tmp"
+    
+    
+  as (
+    
 
 with source_data as (
     select
@@ -6,10 +11,11 @@ with source_data as (
         stop_name,
         stop_lat as latitude,
         stop_lon as longitude
-    from {{ source('raw', 'staging_stops') }}
+    from "airflow"."public"."staging_stops"
 )
 
 select
     *,
     current_timestamp as loaded_at
 from source_data
+  );

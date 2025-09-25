@@ -1,4 +1,9 @@
-{{ config(materialized='view', schema='analytics') }}
+
+  create view "airflow"."analytics_analytics"."stg_routes__dbt_tmp"
+    
+    
+  as (
+    
 
 with source_data as (
     select
@@ -8,10 +13,11 @@ with source_data as (
         route_type,
         route_color,
         route_text_color
-    from {{ source('raw', 'staging_routes') }}
+    from "airflow"."public"."staging_routes"
 )
 
 select
     *,
     current_timestamp as loaded_at
 from source_data
+  );

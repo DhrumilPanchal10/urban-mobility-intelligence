@@ -1,4 +1,4 @@
-{{ config(materialized='view', schema='analytics') }}
+
 
 with source_data as (
     select
@@ -6,7 +6,7 @@ with source_data as (
         stop_name,
         stop_lat as latitude,
         stop_lon as longitude
-    from {{ source('raw', 'staging_stops') }}
+    from "airflow"."public"."staging_stops"
 )
 
 select
