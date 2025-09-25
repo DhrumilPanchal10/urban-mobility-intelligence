@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: public
+    tables:
+      - name: staging_stops
+        description: "Raw stops data from NYC MTA GTFS"
+      - name: staging_routes
+        description: "Raw routes data from NYC MTA GTFS"
